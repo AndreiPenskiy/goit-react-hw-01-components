@@ -1,33 +1,44 @@
 import PropTypes from "prop-types";
+import {
+  ProfileCard,
+  UserImg,
+  CardContainer,
+  Name,
+  Tag,
+  Location,
+  List,
+  TextSpan,
+  NumberSpan,
+} from "./Profile.styled.jsx";
 
 export default function Profile(props) {
   const { avatar, username, tag, location, stats } = props;
   const { followers, views, likes } = stats;
 
   return (
-    <div>
-      <div>
-        <img src={avatar} alt="User avatar" />
-        <p>{username}</p>
-        <p>{tag}</p>
-        <p>{location}</p>
-      </div>
+    <ProfileCard>
+      <CardContainer>
+        <UserImg src={avatar} alt="User avatar" />
+        <Name>{username}</Name>
+        <Tag>{tag}</Tag>
+        <Location>{location}</Location>
+      </CardContainer>
 
-      <ul>
+      <List>
         <li>
-          <span>Followers</span>
-          <span>{followers}</span>
+          <TextSpan>Followers</TextSpan>
+          <NumberSpan>{followers}</NumberSpan>
         </li>
         <li>
-          <span>Views</span>
-          <span>{views}</span>
+          <TextSpan>Views</TextSpan>
+          <NumberSpan>{views}</NumberSpan>
         </li>
         <li>
-          <span>Likes</span>
-          <span>{likes}</span>
+          <TextSpan>Likes</TextSpan>
+          <NumberSpan>{likes}</NumberSpan>
         </li>
-      </ul>
-    </div>
+      </List>
+    </ProfileCard>
   );
 }
 
